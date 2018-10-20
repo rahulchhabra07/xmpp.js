@@ -1676,6 +1676,33 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.8.tgz#551466be11b2adc3f3d47156758f610bd9f6b1d8"
   integrity sha512-b8bbUOTwzIY3V5vDTY1fIJ+ePKDUBqt2hC2woVGotdQQhG/2Sh62HOKHrT7ab+VerXAcPyAiTEipPu/FsreUtg==
 
+"@xmpp/error@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@xmpp/error/-/error-0.6.0.tgz#4e0a8228aad38f0ff4bb5befbd45b7da41dd7daa"
+  integrity sha512-ib0Var0tXmR4Ra4gkd05+G1JkKJg1cUis+REgbDuHKamlqiiS7mTYnIfM0WXevqzlArkv5CDRhI8RArUltfMgQ==
+
+"@xmpp/jid@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@xmpp/jid/-/jid-0.6.0.tgz#677e53717979ed68f21a1a7dbef2343476fc3ddc"
+  integrity sha512-PWKslejBJlPQ3UMXHUuY4ToZGBkkjHgcj+HW7P+TkP2hS+2jid/7KyBgwDbS8ViyA7lkFGFfa+zUWmPNtSoNMQ==
+
+"@xmpp/middleware@^0.6.0":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@xmpp/middleware/-/middleware-0.6.2.tgz#b45ecd0d7c9a5904c08b04ab9eeed2dd134e0586"
+  integrity sha512-hW759cxyfDheqACXQCz2uPozaGXRKUtYbXpe0V8ea6v6H1KNC4Tv9NffFR+o1YcF7nJDOHwKLcj4xD3kWAPHiw==
+  dependencies:
+    "@xmpp/error" "^0.6.0"
+    "@xmpp/jid" "^0.6.0"
+    "@xmpp/xml" "^0.6.2"
+    koa-compose "^4.1.0"
+
+"@xmpp/xml@^0.6.0", "@xmpp/xml@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@xmpp/xml/-/xml-0.6.2.tgz#63162de47819d9b4e27cfb570812bb85bcb825f6"
+  integrity sha512-tje/sSFWy2R6lUwKjvzY7xSlWOWX1PwMuu8xd0eglwZqLt8Tna6bhVY1wR3izAx+sIWQI9LPOgJel+z/nj3h2Q==
+  dependencies:
+    ltx "^2.8.1"
+
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@zkochan/cmd-shim/-/cmd-shim-3.1.0.tgz#2ab8ed81f5bb5452a85f25758eb9b8681982fd2e"
