@@ -3,7 +3,6 @@
 /* eslint no-console: 0 */
 
 const serialize = require('@xmpp/xml/lib/serialize')
-const parse = require('@xmpp/xml/lib/parse')
 const xml = require('@xmpp/xml')
 
 const NS_SASL = 'urn:ietf:params:xml:ns:xmpp-sasl'
@@ -32,37 +31,27 @@ function hideSensitive(element) {
   return element
 }
 
-function format(data, root) {
-  let str
-  try {
-    const element = parse(data)
-    element.parent = root
-    str = serialize(hideSensitive(element), 2, 2)
-    // eslint-disable-next-line no-unused-vars
-  } catch (err) {
-    str = ' ' + data
-  }
-
-  return str
+function format(element) {
+  return serialize(hideSensitive(element.clone()), 2)
 }
 
 module.exports = function debug(entity, force) {
   if (process.env.XMPP_DEBUG || force === true) {
-    entity.on('input', data => {
-      console.debug('⮈', format(data, entity.parser.root))
+    entity.on('element', data => {
+      console.debug(`IN\n${format(data)}`)
     })
 
-    entity.on('output', data => {
-      console.debug('⮊', format(data, entity.root))
+    entity.on('send', data => {
+      console.debug(`OUT\n${format(data)}`)
     })
 
-    entity.on('error', err => console.error('❌', err))
+    entity.on('error', console.error)
 
     entity.on('status', (status, value) => {
       if (['online', 'offline'].includes(status)) {
-        console.log('🛈', status, value ? value.toString() : '')
+        console.log('status', status, value ? value.toString() : '')
       } else {
-        console.debug('🛈', status, value ? value.toString() : '')
+        console.debug('status', status, value ? value.toString() : '')
       }
     })
   }

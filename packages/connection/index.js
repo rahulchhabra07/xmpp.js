@@ -245,7 +245,7 @@ class Connection extends EventEmitter {
    * Connects the socket
    */
   async connect(service) {
-    this._status('connecting')
+    this._status('connecting', service)
     this._attachSocket(new this.Socket())
     // The 'connect' status is set by the socket 'connect' listener
     return socketConnect(this.socket, this.socketParameters(service))
