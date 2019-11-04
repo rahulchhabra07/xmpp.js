@@ -358,7 +358,7 @@ class Connection extends EventEmitter {
           return reject(err)
         }
 
-        this.emit('output', str)
+        this.emit('output', data)
         resolve()
       })
     })
