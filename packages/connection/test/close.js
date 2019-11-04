@@ -30,7 +30,8 @@ test.cb('timeout', t => {
   }
 
   conn.on('output', el => {
-    t.is(el, '<hello/>')
+    str = el.toString('utf8')
+    t.is(str, '<hello/>')
   })
   conn.close().catch(err => {
     t.is(err.name, 'TimeoutError')
@@ -74,7 +75,8 @@ test('resolves', async t => {
   }
 
   conn.on('output', el => {
-    t.is(el, '<hello/>')
+    str = el.toString('utf8')
+    t.is(str, '<hello/>')
   })
 
   const promiseClose = conn.close()
